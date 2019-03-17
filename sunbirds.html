@@ -19,12 +19,9 @@ y: 30,
 moveKey: "l"
 }
 document.addEventListener('keydown', (e) => {
-  console.log(e.key);
   if(e.key == player1.moveKey){
-  console.log("player1", player1.moveKey);
     player1.x += 20
   } else if (e.key == player2.moveKey){
-  console.log("player2", player2.moveKey);
     player2.x += 20
   }
 });
