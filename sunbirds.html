@@ -1,0 +1,46 @@
+<html>
+<body>
+<div style="display:block; width: 1000px; height: 1000px; background-image: url('file:///C:/Users/Battin%20Family/Downloads/ground-and-sky.jpg');;">
+<span id="p1" style="display:inline-block; position: absolute; color: yellow;">O</span>
+<span id="p2" style="display:inline-block; position: absolute; color: orange;">O</span>
+</div>
+<script>
+
+
+const player1 = {
+ x: 0,
+ y: 10,
+ moveKey: "d"
+};
+
+const player2 = {
+x: 0,
+y: 30,
+moveKey: "l"
+}
+document.addEventListener('keydown', (e) => {
+  console.log(e.key);
+  if(e.key == player1.moveKey){
+  console.log("player1", player1.moveKey);
+    player1.x += 20
+  } else if (e.key == player2.moveKey){
+  console.log("player2", player2.moveKey);
+    player2.x += 20
+  }
+});
+const p1Span = document.querySelector("#p1");
+const p2Span = document.querySelector("#p2");
+
+const updatePlayers = () => {
+  p1Span.style.left = player1.x;
+  p2Span.style.left = player2.x;
+  
+  p1Span.style.top = player1.y;
+  p2Span.style.top = player2.y;
+};
+
+window.setInterval(updatePlayers, 30);
+updatePlayers();
+</script>
+</body>
+</html>
