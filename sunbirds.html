@@ -1,25 +1,39 @@
 <html>
 <body>
-<div style="display:block; width: 1000px; height: 1000px; background-image: url('file:///C:/Users/Battin%20Family/Downloads/ground-and-sky.jpg');;">
 <span id="p1" style="display:inline-block; position: absolute; color: yellow;">O</span>
 <span id="p2" style="display:inline-block; position: absolute; color: orange;">O</span>
 </div>
 <script>
 
 
+
+
 const player1 = {
  x: 0,
  y: 10,
- moveKey: "d"
+ moveKey: "d",
+ dashKey: "e"
+ 
 };
 
 const player2 = {
 x: 0,
 y: 30,
-moveKey: "l"
+moveKey: "l",
+dashKey: "o"
+}
+
+function dash(key) {
+	if(key == player1.dashKey){
+		player1.x += 50
+	}
+	else if(key == player2.dashKey){
+		player2.x += 50
+	}
 }
 document.addEventListener('keydown', (e) => {
   console.log(e.key);
+  dash(e.key);
   if(e.key == player1.moveKey){
   console.log("player1", player1.moveKey);
     player1.x += 20
