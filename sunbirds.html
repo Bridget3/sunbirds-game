@@ -13,7 +13,8 @@ const player1 = {
  x: 0,
  y: 10,
  moveKey: "d",
- dashKey: "e"
+ dashKey: "e",
+ lastDash: 0
  
 };
 
@@ -21,17 +22,26 @@ const player2 = {
 x: 0,
 y: 30,
 moveKey: "l",
-dashKey: "o"
+dashKey: "o",
+lastDash: 0
 }
 
 function dash(key) {
+	const now = Date.now()
 	if(key == player1.dashKey){
-		player1.x += 50
+		if((now - player1.lastDash) > 5000){
+			player1.lastDash = now;
+			player1.x += 50
+		}
 	}
 	else if(key == player2.dashKey){
-		player2.x += 50
+		if((now - player2.lastDash) > 5000){
+			player2.lastDash = now;
+			player2.x += 50
+		}
 	}
 }
+
 document.addEventListener('keydown', (e) => {
   dash(e.key);
   if(e.key == player1.moveKey){
