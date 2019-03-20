@@ -14,6 +14,7 @@ const player1 = {
  y: 10,
  moveKey: "d",
  dashKey: "e",
+ backKey: "a",
  lastDash: 0
  
 };
@@ -23,6 +24,7 @@ x: 0,
 y: 30,
 moveKey: "l",
 dashKey: "o",
+backKey: "j",
 lastDash: 0
 }
 
@@ -41,9 +43,18 @@ function dash(key) {
 		}
 	}
 }
-
+function backKey(key) {
+	if(key == player1.backKey){
+	
+		player1.x -= 20
+	}
+	else if(key == player2.backKey){
+		player2.x -= 20
+	}
+}
 document.addEventListener('keydown', (e) => {
   dash(e.key);
+  backKey (e.key);
   if(e.key == player1.moveKey){
     player1.x += 20
   } else if (e.key == player2.moveKey){
